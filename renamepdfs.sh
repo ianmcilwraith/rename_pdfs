@@ -5,6 +5,9 @@ do
  echo "Processing $f file..."
  pdftotext $f file.txt
  filename="$(grep 'TEXT BEFORE DESIRED FILENAME' file.txt | sed 's/^.*: //')"
+ # can also use a variable to grab specific columns
+ # line2column2="$(awk 'NR==2 { print $2 }' file.txt)"
+ # line2column1="$(awk 'NR==2 { print $1 }' file.txt)"
  echo "File Name: $filename"
   if [[ ! -e ~/renamed_directory/"$filename".pdf ]]; then
     # file does not exist in the destination directory
